@@ -1,10 +1,7 @@
 package com.cybertek.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -31,6 +28,12 @@ public class HomeController {
 
     @PostMapping("/spring")
     public String postMappingEx(){
+        return "home";
+    }
+
+    @GetMapping("/home/{name}")
+    public String pathVariableEx(@PathVariable("name") String name){
+        System.out.println("name is " + name);
         return "home";
     }
 
