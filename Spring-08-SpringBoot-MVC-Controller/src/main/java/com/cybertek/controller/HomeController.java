@@ -37,4 +37,11 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/home/{name}/{email}")
+    public String pathVariableEx2(@PathVariable("name") String name, @PathVariable("email") String email){
+        System.out.println("name is " + name);
+        System.out.println("email is " + email);
+        return "home";
+    }
+
 }
