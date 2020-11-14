@@ -45,4 +45,11 @@ public class StudentController {
 
     }
 
+    @GetMapping("/register")
+    public String homePage2(){
+
+        return "student/register";
+
+    }
+
 }
