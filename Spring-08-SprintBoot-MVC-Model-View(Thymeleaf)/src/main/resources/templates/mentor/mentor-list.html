@@ -16,7 +16,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="mentor : ${mentors}" th:text="${mentor}"></tr>
+            <tr th:each="mentor : ${mentors}">
+                <td th:text="${mentor.firstName}"></td>
+                <td th:text="${mentor.lastName}"></td>
+                <td th:text="${mentor.age}"></td>
+                <td th:text="${mentor.gender}"></td>
+            </tr>
         </tbody>
     </table>
 
