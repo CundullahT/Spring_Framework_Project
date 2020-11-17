@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome</title>
 </head>
 <body>
 
@@ -35,6 +35,9 @@
     <ul>
         <li th:each="number : ${numbers}" th:text="${number}"></li>
     </ul>
+
+    <!--Fragment-->
+    <div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
