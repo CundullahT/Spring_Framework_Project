@@ -16,12 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Mike</td>
-                <td>Smith</td>
-                <td>45</td>
-                <td>Male</td>
-            </tr>
+            <tr th:each="mentor : ${mentors}" th:text="${mentor}"></tr>
         </tbody>
     </table>
 
