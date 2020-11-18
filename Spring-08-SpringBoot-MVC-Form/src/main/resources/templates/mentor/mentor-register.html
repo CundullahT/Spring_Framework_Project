@@ -38,7 +38,7 @@
 
         <label for="batchNumber">Batch Number:</label>
         <select name="batchNumber" id="batchNumber" th:field="*{batch}">
-            <option th:value="${theBatch}" th:each="theBatch : ${batchList}" th:text="${theBatch}"></option>
+            <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
         </select>
 
     </form>
