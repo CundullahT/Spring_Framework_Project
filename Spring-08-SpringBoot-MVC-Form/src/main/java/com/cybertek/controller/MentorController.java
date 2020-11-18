@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mentor")
 public class MentorController {
 
-    @GetMapping("/showForm")
+    @GetMapping("/register")
     public String showForm(){
 
 
 
-        return "mentor/showForm";
+        return "mentor/mentor-register";
 
     }
 
