@@ -4,6 +4,7 @@ import com.cybertek.model.Mentor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,7 +28,9 @@ public class MentorController {
     }
 
     @PostMapping("/confirm")
-    public String submitForm(){
+    public String submitForm(@ModelAttribute("mentor") Mentor mentor){
+
+        System.out.println(mentor.toString());
 
         return "mentor/mentor-confirmation";
 
