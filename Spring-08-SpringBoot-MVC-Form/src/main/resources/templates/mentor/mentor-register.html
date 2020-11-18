@@ -41,6 +41,14 @@
             <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
         </select>
 
+        <br>
+
+        <label for="company">Company:</label>
+        <textarea name="company" id="company" cols="30" rows="10" th:field="*{company}" placeholder="Informations about your last company."></textarea>
+
+        <br>
+        <button type="submit">Register</button>
+
     </form>
 
 </div>
