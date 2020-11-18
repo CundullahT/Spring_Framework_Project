@@ -28,6 +28,19 @@
         <label for="graduated">Graduated:</label>
         <input type="checkbox" id="graduated" placeholder="Graduated" th:field="*{graduated}">
 
+        <br>
+
+        <label>Gender:</label>
+        <input type="radio" value="Male" th:field="*{gender}">Male
+        <input type="radio" value="Female" th:field="*{gender}">Female
+
+        <br>
+
+        <label for="batchNumber">Batch Number:</label>
+        <select name="batchNumber" id="batchNumber" th:field="*{batch}">
+            <option value="batch" th:each="theBatch : ${batchList}"></option>
+        </select>
+
     </form>
 
 </div>
