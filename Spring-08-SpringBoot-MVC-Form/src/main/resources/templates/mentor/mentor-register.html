@@ -11,9 +11,12 @@
     <form th:object="${mentor}">
 
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}">
 
+        <br>
 
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}">
 
     </form>
 
