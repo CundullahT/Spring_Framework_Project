@@ -18,7 +18,7 @@ import java.util.List;
 public class EmployeeController {
 
     @GetMapping("/register")
-    public String employeeCreate(Model model){
+    public String employeeCreate(Model model) {
 
         model.addAttribute("employee", new Employee());
         model.addAttribute("stateList", DataGenerator.getStateList());
@@ -28,15 +28,23 @@ public class EmployeeController {
     }
 
     @PostMapping("/list")
-    public String employeeList(@ModelAttribute("employee") Employee employee, Model model){
+    public String employeeList(@ModelAttribute("employee") Employee employee, Model model) {
 
         model.addAttribute("employeeList", Arrays.asList(employee));
+        String address;
 
-        String address = employee.getAddress() + ", " + employee.getAddress2();
+        if (employee.getAddress2() == null) {
+
+            address = employee.getAddress();
+
+        } else {
+            address = employee.getAddress() + ", " + employee.getAddress2();
+
+        }
         model.addAttribute("address", address);
 
         int birthYear = LocalDate.parse(employee.getBirthday()).getYear();
-        model.addAttribute("age",LocalDate.now().getYear() - birthYear);
+        model.addAttribute("age", LocalDate.now().getYear() - birthYear);
 
         return "employee/employee-list";
 
