@@ -16,7 +16,7 @@
     <div class="card">
         <h2 class="card-header p-5 bg-info text-white">Welcome To Employee Registration Page</h2>
         <div class="card-body">
-            <form th:object="${employee}">
+            <form th:action="@{/employee/list}" th:object="${employee}">
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="inputFirstName">First Name</label>
