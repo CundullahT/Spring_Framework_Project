@@ -56,7 +56,7 @@
                         <input type="password" class="form-control" id="inputPassword4" th:field="*{password}" placeholder="Password"
                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
                         <div class="invalid-feedback">
-                            Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters.
+                            Password must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters.
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <label for="inputAddress2">Address 2</label>
                     <input type="text" class="form-control" id="inputAddress2" th:field="*{address2}"
                            placeholder="Apartment, studio, or floor">
-                    <div class="invalid-feedback">
+                    <div class="valid-feedback">
                         Everything looks ok.
                     </div>
                 </div>
