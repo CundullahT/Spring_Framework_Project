@@ -1,8 +1,8 @@
-INSERT INTO students(first_name, last_name, email)
+INSERT INTO students(student_first_name, student_last_name, student_email_address)
 VALUES ('Mike', 'Smith', 'mike@cybertek.com');
-INSERT INTO students(first_name, last_name, email)
+INSERT INTO students(student_first_name, student_last_name, student_email_address)
 VALUES ('Adam', 'Shaun', 'adam@cybertek.com');
-INSERT INTO students(first_name, last_name, email)
+INSERT INTO students(student_first_name, student_last_name, student_email_address)
 VALUES ('Tom', 'Hanks', 'tom@cybertek.com');
-INSERT INTO students(first_name, last_name, email)
+INSERT INTO students(student_first_name, student_last_name, student_email_address)
 VALUES ('Brad', 'Kelly', 'brad@cybertek.com');
