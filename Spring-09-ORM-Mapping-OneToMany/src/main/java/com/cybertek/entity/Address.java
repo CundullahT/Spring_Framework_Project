@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +13,7 @@ import javax.persistence.ManyToOne;
 public class Address {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String street;
@@ -22,5 +21,11 @@ public class Address {
 
     @ManyToOne
     private Person person;
+
+
+    public Address(String street, String zipCode) {
+        this.street = street;
+        this.zipCode = zipCode;
+    }
 
 }
