@@ -1,6 +1,6 @@
-package service;
+package com.cybertek.service;
 
-import implementation.Mentor;
+import com.cybertek.implementation.Mentor;
 
 public class PartTimeMentor implements Mentor {
     @Override
