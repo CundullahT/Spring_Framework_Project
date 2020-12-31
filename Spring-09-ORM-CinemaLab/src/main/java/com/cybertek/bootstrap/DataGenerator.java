@@ -41,6 +41,7 @@ public class DataGenerator implements CommandLineRunner {
     public User u3 = new User("faith.p@email.com", "123123123", "faith");
     public User u4 = new User("johnnie@email.com", "123123123", "johnnie");
     public User u5 = new User("lawrence.f@email.com", "123123123", "lawrence.f");
+
     /**
      * Cinema objects
      */
@@ -60,6 +61,7 @@ public class DataGenerator implements CommandLineRunner {
     public Cinema c14 = new Cinema("Hall 2 - VILLAGE 7", "Kodak");
     public Cinema c15 = new Cinema("Hall 3 - VILLAGE 7", "MySpace");
     public Cinema c16 = new Cinema("Hall 4 - VILLAGE 7", "Channel 4");
+
     /**
      * Movie Objects.
      */
