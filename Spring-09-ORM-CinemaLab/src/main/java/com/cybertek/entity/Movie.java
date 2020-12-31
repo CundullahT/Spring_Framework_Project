@@ -38,8 +38,8 @@ public class Movie extends BaseEntity {
 
     @ManyToMany
     @JoinTable(name = "movie_genre_rel",
-    joinColumns = @JoinColumn(name = "movie_id"),
-    inverseJoinColumns = @JoinColumn(name = "genre_id"))
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genreList = new ArrayList<>();
 
     public Movie(String name, LocalDate releaseDate, Integer duration, MovieType type, MovieState state, BigDecimal price) {
