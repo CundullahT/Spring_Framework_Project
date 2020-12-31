@@ -160,29 +160,35 @@ public class DataGenerator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         createUsers();
         createCinemasAndLocations();
         createMoviesAndGenres();
         scheduleMovies();
         bookAMovie();
+
     }
 
     /**
      * Create users.
      */
     private void createUsers() {
+
         u1.setAccount(a1);
         u2.setAccount(a2);
         u3.setAccount(a3);
         u4.setAccount(a4);
         u5.setAccount(a5);
+
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5));
+
     }
 
     /**
      * create cinemas and locations.
      */
     private void createCinemasAndLocations() {
+
         c1.setLocation(l1);
         c2.setLocation(l1);
         c3.setLocation(l1);
@@ -199,16 +205,22 @@ public class DataGenerator implements CommandLineRunner {
         c14.setLocation(l4);
         c15.setLocation(l4);
         c16.setLocation(l4);
+
         List<Cinema> cinemas = Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16);
+
         cinemaRepository.saveAll(cinemas);
+
     }
 
     /**
      * Create movies and genres.
      */
     private void createMoviesAndGenres() {
+
         List<Genre> genre = Arrays.asList(g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13);
+
         genreRepository.saveAll(genre);
+
         m1.setSummary("An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him.");
         m2.setSummary("After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.");
         m3.setSummary("Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency");
@@ -227,14 +239,18 @@ public class DataGenerator implements CommandLineRunner {
         m7.setGenreList(Arrays.asList(g4));
         m8.setGenreList(Arrays.asList(g3, g8, g10));
         m9.setGenreList(Arrays.asList(g3, g10));
+
         List<Movie> movies = Arrays.asList(m1, m2, m3, m4, m5, m6, m7, m8, m9);
+
         movieRepository.saveAll(movies);
+
     }
 
     /**
      * Shcedule a movie.
      */
     private void scheduleMovies() {
+
         mc1.setMovie(m1);
         mc1.setCinema(c1);
         mc2.setMovie(m1);
@@ -291,14 +307,18 @@ public class DataGenerator implements CommandLineRunner {
         mc27.setCinema(c4);
         mc28.setMovie(m6);
         mc28.setCinema(c4);
+
         List<MovieCinema> movieCinemas = Arrays.asList(mc1, mc2, mc3, mc4, mc5, mc5, mc6, mc7, mc8, mc9, mc10, mc11, mc12, mc13, mc14, mc15, mc16, mc17, mc18, mc19, mc20, mc21, mc22, mc23, mc24, mc25, mc26, mc27, mc28);
+
         movieCinemaRepository.saveAll(movieCinemas);
+
     }
 
     /**
      * Book a movie.
      */
     private void bookAMovie() {
+
         t1.setUser(u1);
         t1.setMovieCinema(mc1);
         t2.setUser(u2);
