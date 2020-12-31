@@ -5,12 +5,17 @@ import com.cybertek.enums.MovieState;
 import com.cybertek.enums.MovieType;
 import com.cybertek.enums.UserRole;
 import com.cybertek.repository.*;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
-public class DataGenerator {
+@Component
+public class DataGenerator implements CommandLineRunner {
 
     private final MovieRepository movieRepository;
     private final CinemaRepository cinemaRepository;
@@ -152,5 +157,193 @@ public class DataGenerator {
     Ticket t18 = new Ticket(9, 9, LocalDateTime.of(2020, 12, 8, 19, 00));
     Ticket t19 = new Ticket(18, 12, LocalDateTime.of(2020, 12, 8, 19, 00));
     Ticket t20 = new Ticket(5, 11, LocalDateTime.of(2020, 12, 8, 19, 00));
+
+    @Override
+    public void run(String... args) throws Exception {
+        createUsers();
+        createCinemasAndLocations();
+        createMoviesAndGenres();
+        scheduleMovies();
+        bookAMovie();
+    }
+
+    /**
+     * Create users.
+     */
+    private void createUsers() {
+        u1.setAccount(a1);
+        u2.setAccount(a2);
+        u3.setAccount(a3);
+        u4.setAccount(a4);
+        u5.setAccount(a5);
+        userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5));
+    }
+
+    /**
+     * create cinemas and locations.
+     */
+    private void createCinemasAndLocations() {
+        c1.setLocation(l1);
+        c2.setLocation(l1);
+        c3.setLocation(l1);
+        c4.setLocation(l1);
+        c5.setLocation(l2);
+        c6.setLocation(l2);
+        c7.setLocation(l2);
+        c8.setLocation(l2);
+        c9.setLocation(l3);
+        c10.setLocation(l3);
+        c11.setLocation(l3);
+        c12.setLocation(l3);
+        c13.setLocation(l4);
+        c14.setLocation(l4);
+        c15.setLocation(l4);
+        c16.setLocation(l4);
+        List<Cinema> cinemas = Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16);
+        cinemaRepository.saveAll(cinemas);
+    }
+
+    /**
+     * Create movies and genres.
+     */
+    private void createMoviesAndGenres() {
+        List<Genre> genre = Arrays.asList(g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13);
+        genreRepository.saveAll(genre);
+        m1.setSummary("An American expat tries to sell off his highly profitable marijuana empire in London, triggering plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him.");
+        m2.setSummary("After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.");
+        m3.setSummary("Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency");
+        m4.setSummary("The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son");
+        m5.setSummary("Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time");
+        m6.setSummary("Hapless Insurance Loss Adjuster - Martin Dyer - feels his life is spiralling out of control but discovers that even when you reach rock bottom, that some clouds really do have a silver lining");
+        m7.setSummary("A murderous Santa and Mrs Claus play a cat and mouse game with the FBI.");
+        m8.setSummary("In this sequel of Marvel's Spider-Man (2018), you can play as Miles Morales as a new and different Spider-Man while he learns some stories about his will of fighting crime and serving justice by his mentor and former hero, Peter Parker.");
+        m9.setSummary("After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.");
+        m1.setGenreList(Arrays.asList(g3, g1, g8));
+        m2.setGenreList(Arrays.asList(g13, g6));
+        m3.setGenreList(Arrays.asList(g6));
+        m4.setGenreList(Arrays.asList(g6, g8));
+        m5.setGenreList(Arrays.asList(g2, g3));
+        m6.setGenreList(Arrays.asList(g1));
+        m7.setGenreList(Arrays.asList(g4));
+        m8.setGenreList(Arrays.asList(g3, g8, g10));
+        m9.setGenreList(Arrays.asList(g3, g10));
+        List<Movie> movies = Arrays.asList(m1, m2, m3, m4, m5, m6, m7, m8, m9);
+        movieRepository.saveAll(movies);
+    }
+
+    /**
+     * Shcedule a movie.
+     */
+    private void scheduleMovies() {
+        mc1.setMovie(m1);
+        mc1.setCinema(c1);
+        mc2.setMovie(m1);
+        mc2.setCinema(c7);
+        mc3.setMovie(m1);
+        mc3.setCinema(c10);
+        mc4.setMovie(m1);
+        mc4.setCinema(c12);
+        mc5.setMovie(m1);
+        mc5.setCinema(c14);
+        mc6.setMovie(m5);
+        mc6.setCinema(c1);
+        mc7.setMovie(m5);
+        mc7.setCinema(c7);
+        mc8.setMovie(m5);
+        mc8.setCinema(c12);
+        mc9.setMovie(m5);
+        mc9.setCinema(c12);
+        mc10.setMovie(m5);
+        mc10.setCinema(c14);
+        mc11.setMovie(m7);
+        mc11.setCinema(c1);
+        mc12.setMovie(m7);
+        mc12.setCinema(c7);
+        mc13.setMovie(m7);
+        mc13.setCinema(c12);
+        mc14.setMovie(m7);
+        mc14.setCinema(c12);
+        mc15.setMovie(m7);
+        mc15.setCinema(c14);
+        mc16.setMovie(m2);
+        mc16.setCinema(c1);
+        mc17.setMovie(m3);
+        mc17.setCinema(c7);
+        mc18.setMovie(m4);
+        mc18.setCinema(c12);
+        mc19.setMovie(m8);
+        mc19.setCinema(c12);
+        mc20.setMovie(m9);
+        mc20.setCinema(c14);
+        mc21.setMovie(m6);
+        mc21.setCinema(c1);
+        mc22.setMovie(m6);
+        mc22.setCinema(c1);
+        mc23.setMovie(m6);
+        mc23.setCinema(c2);
+        mc24.setMovie(m6);
+        mc24.setCinema(c2);
+        mc25.setMovie(m6);
+        mc25.setCinema(c3);
+        mc26.setMovie(m6);
+        mc26.setCinema(c3);
+        mc27.setMovie(m6);
+        mc27.setCinema(c4);
+        mc28.setMovie(m6);
+        mc28.setCinema(c4);
+        List<MovieCinema> movieCinemas = Arrays.asList(mc1, mc2, mc3, mc4, mc5, mc5, mc6, mc7, mc8, mc9, mc10, mc11, mc12, mc13, mc14, mc15, mc16, mc17, mc18, mc19, mc20, mc21, mc22, mc23, mc24, mc25, mc26, mc27, mc28);
+        movieCinemaRepository.saveAll(movieCinemas);
+    }
+
+    /**
+     * Book a movie.
+     */
+    private void bookAMovie() {
+        t1.setUser(u1);
+        t1.setMovieCinema(mc1);
+        t2.setUser(u2);
+        t2.setMovieCinema(mc1);
+        t3.setUser(u3);
+        t3.setMovieCinema(mc1);
+        t4.setUser(u4);
+        t4.setMovieCinema(mc1);
+        t5.setUser(u5);
+        t5.setMovieCinema(mc1);
+        t6.setUser(u1);
+        t6.setMovieCinema(mc8);
+        t7.setUser(u2);
+        t7.setMovieCinema(mc8);
+        t8.setUser(u3);
+        t8.setMovieCinema(mc8);
+        t9.setUser(u4);
+        t9.setMovieCinema(mc8);
+        t10.setUser(u5);
+        t10.setMovieCinema(mc8);
+        t11.setUser(u1);
+        t11.setMovieCinema(mc15);
+        t12.setUser(u2);
+        t12.setMovieCinema(mc15);
+        t13.setUser(u3);
+        t13.setMovieCinema(mc15);
+        t14.setUser(u4);
+        t14.setMovieCinema(mc15);
+        t15.setUser(u5);
+        t15.setMovieCinema(mc15);
+        t16.setUser(u1);
+        t16.setMovieCinema(mc17);
+        t17.setUser(u2);
+        t17.setMovieCinema(mc17);
+        t18.setUser(u3);
+        t18.setMovieCinema(mc17);
+        t19.setUser(u4);
+        t19.setMovieCinema(mc17);
+        t20.setUser(u5);
+        t20.setMovieCinema(mc17);
+
+        List<Ticket> tickets = Arrays.asList(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20);
+
+        ticketRepository.saveAll(tickets);
+
+    }
 
 }
