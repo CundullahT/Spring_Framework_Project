@@ -1,12 +1,14 @@
 package com.cybertek;
 
 import com.cybertek.repository.DepartmentRepository;
+import com.cybertek.repository.EmployeeRepository;
 import com.cybertek.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class DerivedqueryApplication {
@@ -16,6 +18,9 @@ public class DerivedqueryApplication {
 
     @Autowired
     DepartmentRepository departmentRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(DerivedqueryApplication.class, args);
@@ -37,7 +42,7 @@ public class DerivedqueryApplication {
     }
 
     @PostConstruct
-    public void testDeparments(){
+    public void testDepartments(){
 
         System.out.println("----------Department Start----------");
 
@@ -51,5 +56,25 @@ public class DerivedqueryApplication {
         System.out.println("-----------Department End-----------");
 
     }
+
+    @PostConstruct
+    public void testEmployees(){
+
+        System.out.println("----------Employees Start----------");
+
+        System.out.println("employeeRepository.findByEmail(\"bhendricksi@privacy.gov.au\") = " + employeeRepository.findByEmail("bhendricksi@privacy.gov.au"));
+        System.out.println("employeeRepository.findByFirstNameAndLastNameOrEmail(\"Benn\", \"Dudley\", \"bhendricksi@privacy.gov.au\") = " + employeeRepository.findByFirstNameAndLastNameOrEmail("Benn", "Dudley", "bhendricksi@privacy.gov.au"));
+        System.out.println("employeeRepository.findByFirstNameIsNot(\"Cayla\") = " + employeeRepository.findByFirstNameIsNot("Cayla"));
+        System.out.println("employeeRepository.findByLastNameStartingWith(\"Za\") = " + employeeRepository.findByLastNameStartingWith("Za"));
+        System.out.println("employeeRepository.findBySalaryGreaterThan(80000) = " + employeeRepository.findBySalaryGreaterThan(80000));
+        System.out.println("employeeRepository.findBySalaryLessThanEqual(80000) = " + employeeRepository.findBySalaryLessThanEqual(80000));
+        System.out.println("employeeRepository.findByHireDateBetween(LocalDate.of(2010, 6, 1), LocalDate.of(2013, 12, 30)) = " + employeeRepository.findByHireDateBetween(LocalDate.of(2010, 6, 1), LocalDate.of(2013, 12, 30)));
+        System.out.println("employeeRepository.findBySalaryGreaterThanEqualOrderBySalaryDesc(80000) = " + employeeRepository.findBySalaryGreaterThanEqualOrderBySalaryDesc(80000));
+        System.out.println("employeeRepository.findDistinctTop3BySalaryLessThan(80000) = " + employeeRepository.findDistinctTop3BySalaryLessThan(80000));
+        System.out.println("employeeRepository.findByEmailIsNull() = " + employeeRepository.findByEmailIsNull());
+
+        System.out.println("-----------Employees End-----------");
+
     }
 
+}
