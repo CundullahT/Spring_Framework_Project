@@ -37,7 +37,7 @@ public class Employee extends BaseEntity {
     private Integer salary;
 
     @ManyToOne
-    @JoinColumn(name = "region_id")
+    @JoinColumn(name = "region_id")     // No need to put it in here but just put it to make sure it works for other databases too, just in case if database changes or whatever.
     private Region region;
 
 }
