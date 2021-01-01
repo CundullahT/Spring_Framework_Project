@@ -1,5 +1,6 @@
 package com.cybertek;
 
+import com.cybertek.repository.DepartmentRepository;
 import com.cybertek.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,9 @@ public class DerivedqueryApplication {
 
     @Autowired
     RegionRepository regionRepository;
+
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(DerivedqueryApplication.class, args);
@@ -32,4 +36,20 @@ public class DerivedqueryApplication {
 
     }
 
-}
+    @PostConstruct
+    public void testDeparments(){
+
+        System.out.println("----------Department Start----------");
+
+        System.out.println("departmentRepository.findByDepartment(\"Furniture\") = " + departmentRepository.findByDepartment("Furniture"));
+        System.out.println("departmentRepository.findByDivision(\"Health\") = " + departmentRepository.findByDivision("Health"));
+        System.out.println("departmentRepository.findByDivisionIs(\"Health\") = " + departmentRepository.findByDivisionIs("Health"));
+        System.out.println("departmentRepository.findByDivisionEquals(\"Health\") = " + departmentRepository.findByDivisionEquals("Health"));
+        System.out.println("departmentRepository.findByDivisionEndingWith(\"ics\") =" + departmentRepository.findByDivisionEndingWith("ics"));
+        System.out.println("departmentRepository.findDistinctTop3ByDivisionContaining(\"Hea\") = " + departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
+
+        System.out.println("-----------Department End-----------");
+
+    }
+    }
+
