@@ -1,4 +1,7 @@
 package com.cybertek.entity;
 
-public class Region {
+import javax.persistence.Entity;
+
+@Entity
+public class Region extends BaseEntity {
 }

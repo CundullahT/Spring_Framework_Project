@@ -1,4 +1,7 @@
 package com.cybertek.entity;
 
-public class Department {
+import javax.persistence.Entity;
+
+@Entity
+public class Department extends BaseEntity {
 }
