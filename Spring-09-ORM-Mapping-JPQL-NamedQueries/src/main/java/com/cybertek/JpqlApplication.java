@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class JpqlApplication {
@@ -34,6 +35,11 @@ public class JpqlApplication {
         System.out.println("employeeRepository.getEmployeeByFirstNameLike(\"ab\") = " + employeeRepository.getEmployeeByFirstNameLike("ab"));
         System.out.println("employeeRepository.getEmployeeBySalaryLessThan(80000) = " + employeeRepository.getEmployeeBySalaryLessThan(80000));
         System.out.println("employeeRepository.getEmployeeBySalaryGreaterThan(80000) = " + employeeRepository.getEmployeeBySalaryGreaterThan(80000));
+        System.out.println("employeeRepository.getEmployeeBySalaryBetween(80000, 10000) = " + employeeRepository.getEmployeeBySalaryBetween(80000, 10000));
+        System.out.println("employeeRepository.getEmployeeByHireDateBefore(LocalDate.now()) = " + employeeRepository.getEmployeeByHireDateBefore(LocalDate.now()));
+        System.out.println("employeeRepository.getEmployeeByHireDateAfter(LocalDate.now().minusYears(5)) = " + employeeRepository.getEmployeeByHireDateAfter(LocalDate.now().minusYears(5)));
+        System.out.println("employeeRepository.getEmployeeByEmailIsNull() = " + employeeRepository.getEmployeeByEmailIsNull());
+        System.out.println("employeeRepository.getEmployeeByEmailIsNotNull() = " + employeeRepository.getEmployeeByEmailIsNotNull());
 
     }
 
