@@ -9,7 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity//(name = "Employees")        ---         We can change the name of the entity too.
 @Table(name = "employees")
 @Getter
 @Setter
