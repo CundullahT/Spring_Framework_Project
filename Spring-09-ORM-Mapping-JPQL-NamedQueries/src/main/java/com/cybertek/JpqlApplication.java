@@ -49,6 +49,8 @@ public class JpqlApplication {
         System.out.println("employeeRepository.getEmployeeBySalaryOrderByAsc() = " + employeeRepository.getEmployeeBySalaryOrderByAsc());
         System.out.println("employeeRepository.getEmployeeBySalaryOrderByDesc() = " + employeeRepository.getEmployeeBySalaryOrderByDesc());
         System.out.println("employeeRepository.readEmployeeBySalary(114983) = " + employeeRepository.readEmployeeBySalary(114983));
+        employeeRepository.updateEmployeeJPQL(1);
+        employeeRepository.updateEmployeeNativeQuery(2);
         System.out.println("-----------Employee End-----------");
 
         System.out.println("----------Department Start----------");
