@@ -51,10 +51,12 @@ public class JpqlApplication {
         System.out.println("employeeRepository.readEmployeeBySalary(114983) = " + employeeRepository.readEmployeeBySalary(114983));
         employeeRepository.updateEmployeeJPQL(1);
         employeeRepository.updateEmployeeNativeQuery(2);
+        System.out.println("employeeRepository.retrieveEmployeeSalaryGreaterThan(80000) = " + employeeRepository.retrieveEmployeeSalaryGreaterThan(80000));
         System.out.println("-----------Employee End-----------");
 
         System.out.println("----------Department Start----------");
         System.out.println(departmentRepository.getDepartmentByDivisionIn(Arrays.asList("Health", "Kids", "Home")));
+        System.out.println("departmentRepository.retrieveDepartmentByDivision(\"Health\") = " + departmentRepository.retrieveDepartmentByDivision("Health"));
         System.out.println("-----------Department End-----------");
 
     }
