@@ -20,14 +20,16 @@ public class JpqlApplication {
     @PostConstruct
     public void testEmployee(){
 
-        System.out.println(employeeRepository.getEmployeeDetail());
-        System.out.println(employeeRepository.getEmployeeSalary());
+        System.out.println("employeeRepository.getEmployeeDetail() = " + employeeRepository.getEmployeeDetail());
+        System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary());
 
         if(employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").isPresent()) {
-            System.out.println(employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").get());
+            System.out.println("employeeRepository.getEmployeeByEmail(\"bhendricksi@privacy.gov.au\").get() = " + employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").get());
         }
 
-        System.out.println(employeeRepository.getEmployeeByEmailAndSalary("bhendricksi@privacy.gov.au", 158268));
+        System.out.println("employeeRepository.getEmployeeByEmailAndSalary(\"bhendricksi@privacy.gov.au\", 158268) = " + employeeRepository.getEmployeeByEmailAndSalary("bhendricksi@privacy.gov.au", 158268));
+        System.out.println("employeeRepository.getEmployeeBySalary(114983) = " + employeeRepository.getEmployeeBySalary(114983));
+        System.out.println("employeeRepository.getEmployeeByFirstNameOrSalary(\"Jessey\", 124949) = " + employeeRepository.getEmployeeByFirstNameOrSalary("Jessey", 124949));
 
     }
 
