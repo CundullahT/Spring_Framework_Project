@@ -30,6 +30,10 @@ public class JpqlApplication {
         System.out.println("employeeRepository.getEmployeeByEmailAndSalary(\"bhendricksi@privacy.gov.au\", 158268) = " + employeeRepository.getEmployeeByEmailAndSalary("bhendricksi@privacy.gov.au", 158268));
         System.out.println("employeeRepository.getEmployeeBySalary(114983) = " + employeeRepository.getEmployeeBySalary(114983));
         System.out.println("employeeRepository.getEmployeeByFirstNameOrSalary(\"Jessey\", 124949) = " + employeeRepository.getEmployeeByFirstNameOrSalary("Jessey", 124949));
+        System.out.println("employeeRepository.getEmployeeBySalaryNotEqual(80000) = " + employeeRepository.getEmployeeBySalaryNotEqual(80000));
+        System.out.println("employeeRepository.getEmployeeByFirstNameLike(\"ab\") = " + employeeRepository.getEmployeeByFirstNameLike("ab"));
+        System.out.println("employeeRepository.getEmployeeBySalaryLessThan(80000) = " + employeeRepository.getEmployeeBySalaryLessThan(80000));
+        System.out.println("employeeRepository.getEmployeeBySalaryGreaterThan(80000) = " + employeeRepository.getEmployeeBySalaryGreaterThan(80000));
 
     }
 
