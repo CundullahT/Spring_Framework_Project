@@ -23,6 +23,12 @@ public class JpqlApplication {
         System.out.println(employeeRepository.getEmployeeDetail());
         System.out.println(employeeRepository.getEmployeeSalary());
 
+        if(employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").isPresent()) {
+            System.out.println(employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").get());
+        }
+
+        System.out.println(employeeRepository.getEmployeeByEmailAndSalary("bhendricksi@privacy.gov.au", 158268));
+
     }
 
 }
