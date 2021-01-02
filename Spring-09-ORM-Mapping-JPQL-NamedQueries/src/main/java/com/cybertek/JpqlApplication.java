@@ -59,6 +59,7 @@ public class JpqlApplication {
         System.out.println("departmentRepository.retrieveDepartmentByDivision(\"Health\") = " + departmentRepository.retrieveDepartmentByDivision("Health"));
         System.out.println("departmentRepository.retrieveDepartmentByDivisionContains(\"ics\") = " + departmentRepository.retrieveDepartmentByDivisionContains("ics"));
         System.out.println("departmentRepository.findOzzyDepartment(\"Kids\") = " + departmentRepository.findOzzyDepartment("Kids"));
+        System.out.println("departmentRepository.retrieveAllDepartments() = " + departmentRepository.retrieveAllDepartments());
         System.out.println("-----------Department End-----------");
 
     }
