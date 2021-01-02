@@ -24,12 +24,12 @@ public class JpqlApplication {
     }
 
     @PostConstruct
-    public void testEmployee(){
+    public void testEmployee() {
 
         System.out.println("employeeRepository.getEmployeeDetail() = " + employeeRepository.getEmployeeDetail());
         System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary());
 
-        if(employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").isPresent()) {
+        if (employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").isPresent()) {
             System.out.println("employeeRepository.getEmployeeByEmail(\"bhendricksi@privacy.gov.au\").get() = " + employeeRepository.getEmployeeByEmail("bhendricksi@privacy.gov.au").get());
         }
 
