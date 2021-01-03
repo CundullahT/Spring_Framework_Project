@@ -22,7 +22,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     Integer countAllByCinemaId(Long cinemaId);
 
     //Write a derived query to count all movie cinemas with a specific movie id
-    Integer countAllByMovieId(Integer movieId);
+    Integer countAllByMovieId(Long movieId);
 
     //Write a derived query to list all movie cinemas with higher than a specific date
     List<MovieCinema> findAllByDateTimeAfter(LocalDateTime dateTime);
