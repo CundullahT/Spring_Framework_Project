@@ -18,6 +18,8 @@ import javax.persistence.*;
 @NamedNativeQuery(name = "Department.retrieveAllDepartments",
         query = "SELECT * FROM departments",
         resultClass = Department.class)
+@NamedNativeQuery(name = "Department.countAllDepartments",
+        query = "SELECT count(*) FROM departments")
 public class Department {
 
     @Id
