@@ -3,6 +3,7 @@ package com.cybertek.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "user_account")
+@ToString
 public class User extends BaseEntity {
 
     private String email;
