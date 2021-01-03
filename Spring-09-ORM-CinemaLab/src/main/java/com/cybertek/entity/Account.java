@@ -4,6 +4,7 @@ import com.cybertek.enums.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -39,6 +40,20 @@ public class Account extends BaseEntity {
         this.age = age;
         this.postalCode = postalCode;
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", state='" + state + '\'' +
+                ", city='" + city + '\'' +
+                ", age=" + age +
+                ", postalCode='" + postalCode + '\'' +
+                ", role=" + role +
+                '}';
     }
 
 }
