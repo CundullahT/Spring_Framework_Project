@@ -39,7 +39,6 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query to list all movie cinemas with after a specific date
-
     @Query("SELECT mc FROM MovieCinema mc WHERE mc.dateTime > ?1")
     List<MovieCinema> fetchAllWithHigherSpecificDateJPQL(LocalDateTime dateTime);
 
