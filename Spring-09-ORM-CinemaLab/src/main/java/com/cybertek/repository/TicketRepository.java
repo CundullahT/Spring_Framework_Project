@@ -43,7 +43,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     //Write a native query to count the number of tickets a user bought in a specific range of dates
     @Query(value = "SELECT COUNT(*) FROM ticket WHERE user_account_id = ?1 AND date_time BETWEEN ?2 AND ?3", nativeQuery = true)
-    Integer countTicketByUserInDataRanges(Long userId, LocalDateTime start, LocalDateTime end);
+    Integer countTicketByUserInDateRanges(Long userId, LocalDateTime start, LocalDateTime end);
 
     //Write a native query to distinct all tickets by movie name
     @Query(value = "SELECT DISTINCT(m.name) FROM ticket JOIN movie_cinema mc ON mc.id=ticket.movie_cinema_id JOIN movie m ON mc.movie_id = m.id", nativeQuery = true)
