@@ -62,7 +62,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
             " JOIN account_details ad ON ad.id = ua.account_details_id " +
             " JOIN movie_cinema mc ON ticket.movie_cinema_id = mc.id " +
             " JOIN movie m ON mc.movie_id = m.id " +
-            " WHERE ua.username ILIKE concat('%',?1,'%') OR ad.name ILIKE concat('%',?1,'%') or m.name ILIKE concat('%',?1,'%')", nativeQuery = true)
+            " WHERE ua.username ILIKE concat('%',?1,'%') OR ad.name ILIKE concat('%',?1,'%') OR m.name ILIKE concat('%',?1,'%')", nativeQuery = true)
     List<Ticket> retrieveAllBySearchCriteria(String searchCriteria);
 
 }
