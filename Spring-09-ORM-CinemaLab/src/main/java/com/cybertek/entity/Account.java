@@ -4,7 +4,6 @@ import com.cybertek.enums.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -21,7 +20,6 @@ public class Account extends BaseEntity {
     private String state;
     private String city;
     private Integer age;
-
     @Column(name = "postal_code")
     private String postalCode;
 
