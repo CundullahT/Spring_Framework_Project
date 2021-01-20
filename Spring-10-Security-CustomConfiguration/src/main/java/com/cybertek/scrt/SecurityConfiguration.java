@@ -1,4 +1,4 @@
-package com.cybertek.security;
+package com.cybertek.scrt;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -27,4 +27,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("ozzy").password("ozzy123").roles("USER");
     }
+
 }
