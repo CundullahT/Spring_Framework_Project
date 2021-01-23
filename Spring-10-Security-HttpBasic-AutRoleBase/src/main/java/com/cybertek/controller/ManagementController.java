@@ -10,7 +10,7 @@ public class ManagementController {
 
     @GetMapping("/index")
     public String index(){
-        return "/management/index";
+        return "management/index";
     }
 
 }

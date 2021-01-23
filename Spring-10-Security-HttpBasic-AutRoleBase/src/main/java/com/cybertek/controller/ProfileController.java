@@ -10,7 +10,7 @@ public class ProfileController {
 
     @GetMapping("/index")
     public String index(){
-        return "/profile/index";
+        return "profile/index";
     }
 
 }
