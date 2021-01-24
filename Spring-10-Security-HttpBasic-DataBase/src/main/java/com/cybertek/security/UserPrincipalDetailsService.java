@@ -21,4 +21,5 @@ public class UserPrincipalDetailsService implements UserDetailsService {
         User user = userRepository.findByUsername(s);
         return new UserPrincipal(user);
     }
+
 }
