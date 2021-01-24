@@ -16,12 +16,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()    // Request should be authorized.
-                .antMatchers("index.html").permitAll()
+//                .antMatchers("index.html").permitAll()
                 .antMatchers("/profile/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")      // .hasAuthority("ROLE_ADMIN")
-                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")       // // .hasAnyAuthority("ROLE_ADMIN", "ROLE_MANAGER")
+                .antMatchers("/admin/**").hasAuthority("ADMIN")      // .hasAuthority("ROLE_ADMIN")
+                .antMatchers("/management/**").hasAnyAuthority("ADMIN", "MANAGER")       // // .hasAnyAuthority("ROLE_ADMIN", "ROLE_MANAGER")
                 .and()
-                .httpBasic();   // Perform basic http authentication.
+                .formLogin()   // Perform form authentication.
+                .loginPage("/login")
+                .defaultSuccessUrl("/index")
+                .failureUrl("/login?error=true")
+                .permitAll();
+
     }
 
     @Bean
