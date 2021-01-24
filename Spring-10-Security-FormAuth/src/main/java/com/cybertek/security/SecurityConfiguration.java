@@ -13,6 +13,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    private final UserPrincipalDetailsService userPrincipalDetailsService;
+
+    public SecurityConfiguration(UserPrincipalDetailsService userPrincipalDetailsService) {
+        this.userPrincipalDetailsService = userPrincipalDetailsService;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -30,7 +36,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout=true");
+                .logoutSuccessUrl("/login?logout=true")
+                .and()
+                .rememberMe()
+                .tokenValiditySeconds(120)
+                .key("cybertekSecret")
+                .userDetailsService(userPrincipalDetailsService);
 
     }
 
