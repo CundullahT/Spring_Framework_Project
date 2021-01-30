@@ -21,22 +21,22 @@ public class ProductController {
         return productService.getProduct(id);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Product> getProduct(){
         return productService.getProducts();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping
     public List<Product> createProduct(@RequestBody Product product) throws Exception {
         return productService.createProduct(product);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{id}")
     public List<Product> deleteProduct(@PathVariable("id") long id){
         return productService.delete(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/{id}")
     public List<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) throws Exception {
         return productService.updateProduct(id, product);
     }
