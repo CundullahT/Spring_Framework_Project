@@ -88,10 +88,17 @@ public class ProductController {
                 .ok(new ResponseWrapper("Products Successfully Retrieved.", productService.getProducts()));
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete2/{id}")
     public ResponseEntity<ResponseWrapper> deleteProduct2(@PathVariable("id") long id){
         return ResponseEntity
                 .ok(new ResponseWrapper("Product Successfully Deleted."));
+    }
+
+    @DeleteMapping("/delete3/{id}")
+    public ResponseEntity<ResponseWrapper> deleteProduct3(@PathVariable("id") long id){
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Operation", "Delete");
+        return ResponseEntity.status(HttpStatus.ACCEPTED).headers(httpHeaders).body(new ResponseWrapper("Product Successfully Deleted"));
     }
 
 }
