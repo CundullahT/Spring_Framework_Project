@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products")
-    public @ResponseBody List<Product> getProduct(){
+    public @ResponseBody List<Product> getProducts(){
         return productService.getProducts();
     }
 
