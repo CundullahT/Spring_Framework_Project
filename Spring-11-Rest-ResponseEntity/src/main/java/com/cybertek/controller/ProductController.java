@@ -5,6 +5,8 @@ import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,16 +51,34 @@ public class ProductController {
                 .header("Version", "Cybertek.v1")
                 .header("Operation", "Create")
                 .body(set);
+
     }
 
     @DeleteMapping(value = "/{id}")
-    public List<Product> deleteProduct(@PathVariable("id") long id){
-        return productService.delete(id);
+    public ResponseEntity<List<Product>> deleteProduct(@PathVariable("id") long id){
+
+        HttpHeaders responseHttpHeaders = new HttpHeaders();
+
+        responseHttpHeaders.set("Version", "Cybertek.v1");
+        responseHttpHeaders.set("Operation", "Delete");
+
+        List<Product> list = productService.delete(id);
+
+        return new ResponseEntity<>(list, responseHttpHeaders, HttpStatus.OK);
+
     }
 
     @PutMapping(value = "/{id}")
-    public List<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) throws Exception {
-        return productService.updateProduct(id, product);
+    public ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id, @RequestBody Product product) throws Exception {
+
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("Version", "Cybertek.v1");
+        map.add("Operation", "Update");
+
+        List<Product> list = productService.updateProduct(id, product);
+
+        return new ResponseEntity<>(list, map, HttpStatus.OK);
+
     }
 
 }
