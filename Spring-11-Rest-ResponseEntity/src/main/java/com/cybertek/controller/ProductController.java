@@ -4,7 +4,6 @@ import com.cybertek.entity.Product;
 import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +19,8 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)   // In default it is already method = RequestMethod.GET
-    public Product getProduct(@PathVariable("id") Long id) throws Exception {
-        return productService.getProduct(id);
+    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) throws Exception {
+        return ResponseEntity.ok(productService.getProduct(id));
     }
 
     @GetMapping
