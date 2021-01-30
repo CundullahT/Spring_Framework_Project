@@ -82,7 +82,7 @@ public class ProductController {
 
     }
 
-    @GetMapping("read")
+    @GetMapping("/read")
     public ResponseEntity<ResponseWrapper> readAllProducts(){
         return ResponseEntity
                 .ok(new ResponseWrapper("Products Successfully Retrieved.", productService.getProducts()));
