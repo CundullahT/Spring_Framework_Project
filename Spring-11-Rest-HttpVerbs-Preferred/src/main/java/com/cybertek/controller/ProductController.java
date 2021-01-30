@@ -16,12 +16,12 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)   // In default it is already method = RequestMethod.GET
+    @GetMapping(value = "/{id}")   // In default it is already method = RequestMethod.GET
     public Product getProduct(@PathVariable("id") Long id) throws Exception {
         return productService.getProduct(id);
     }
 
-    @RequestMapping(value = "/")
+    @GetMapping("/")
     public List<Product> getProduct(){
         return productService.getProducts();
     }

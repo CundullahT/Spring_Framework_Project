@@ -26,17 +26,17 @@ public class ProductController {
         return productService.getProducts();
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    @PostMapping(value = "/products")
     public @ResponseBody List<Product> createProduct(@RequestBody Product product) throws Exception {
         return productService.createProduct(product);
     }
 
-    @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/products/{id}")
     public @ResponseBody List<Product> deleteProduct(@PathVariable("id") long id){
         return productService.delete(id);
     }
 
-    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/products/{id}")
     public @ResponseBody List<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) throws Exception {
         return productService.updateProduct(id, product);
     }
