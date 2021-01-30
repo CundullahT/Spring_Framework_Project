@@ -41,11 +41,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> createProduct(Product product) throws Exception {
+    public List<Product> createProduct(Product product) {
 
-        Optional<Product> foundedProduct = productRepository.findById(product.getId());
-
-        if (foundedProduct.isPresent()) throw new Exception("Product already exists.");
+//        Optional<Product> foundedProduct = productRepository.findById(product.getId());
+//
+//        if (foundedProduct.isPresent()) throw new Exception("Product already exists.");
 
         productRepository.save(product);
 
