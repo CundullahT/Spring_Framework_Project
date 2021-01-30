@@ -3,6 +3,7 @@ package com.cybertek.controller;
 import com.cybertek.entity.Product;
 import com.cybertek.service.ProductService;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +25,17 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getProducts(){
+    public ResponseEntity<List<Product>> getProducts(){
 
         HttpHeaders responseHttpHeaders = new HttpHeaders();
 
-        return productService.getProducts();
+        responseHttpHeaders.set("Version", "Cybertek.v1");
+        responseHttpHeaders.set("Operation", "Get List");
+
+        return ResponseEntity
+                .ok()
+                .headers(responseHttpHeaders)
+                .body(productService.getProducts());
 
     }
 
