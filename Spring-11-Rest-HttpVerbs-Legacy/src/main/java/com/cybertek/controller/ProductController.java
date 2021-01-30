@@ -36,7 +36,7 @@ public class ProductController {
         return productService.delete(id);
     }
 
-    @RequestMapping(value = "products/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
     public @ResponseBody List<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) throws Exception {
         return productService.updateProduct(id, product);
     }
