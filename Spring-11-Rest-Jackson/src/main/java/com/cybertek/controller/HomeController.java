@@ -5,6 +5,8 @@ import com.cybertek.entity.User;
 import com.cybertek.repository.AccountRepository;
 import com.cybertek.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,6 +30,12 @@ public class HomeController {
     @GetMapping("/accounts")
     public List<Account> readAllAccounts(){
         return accountRepository.findAll();
+    }
+
+    @PostMapping("/create/user")
+    public List<User> createUser(@RequestBody User user){
+        userRepository.save(user);
+        return userRepository.findAll();
     }
 
 }
