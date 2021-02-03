@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class WebFluxController {
 
-    private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();
+    private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080/api").build();
 
     private final MovieCinemaRepository movieCinemaRepository;
     private final GenreRepository genreRepository;
@@ -87,6 +87,25 @@ public class WebFluxController {
                         .build()
                 )
                 .retrieve().bodyToMono(MovieCinema.class);
+    }
+
+    @PostMapping("/create")
+    public Mono<Genre> createGenreWebClient(@RequestBody Genre genre){
+        return webClient
+                .post()
+                .uri("/create-genre")
+                .body(Mono.just(genre), Genre.class)
+                .retrieve()
+                .bodyToMono(Genre.class);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Mono<Void> deleteWebClient(@PathVariable("id") Long id){
+        return webClient
+                .delete()
+                .uri("/delete-genre/{id}", id)
+                .retrieve()
+                .bodyToMono(Void.class);
     }
 
 }
