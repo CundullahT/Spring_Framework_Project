@@ -50,7 +50,7 @@ public class WebFluxController {
         return Mono.just(updatedGenre);
     }
 
-    @DeleteMapping("/delete-genre-{id}")
+    @DeleteMapping("/delete-genre/{id}")
     public Mono<Void> deleteGenre(@PathVariable("id") Long id){
         genreRepository.deleteById(id);
         return Mono.empty();
