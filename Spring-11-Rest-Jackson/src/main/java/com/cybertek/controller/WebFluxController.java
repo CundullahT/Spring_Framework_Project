@@ -5,6 +5,7 @@ import com.cybertek.repository.GenreRepository;
 import com.cybertek.repository.MovieCinemaRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -29,7 +30,12 @@ public class WebFluxController {
     }
 
     @GetMapping("/mono-movie-cinema/{id}")
-    public Mono<MovieCinema> readCinemaByIdMono(@PathVariable("id") Long id){
+    public Mono<MovieCinema> readCinemaByIdMonoPathVariable(@PathVariable("id") Long id){
+        return Mono.just(movieCinemaRepository.findById(id).get());
+    }
+
+    @GetMapping("/mono-movie-cinema")
+    public Mono<MovieCinema> readCinemaByIdMonoRequestParam(@RequestParam("id") Long id){
         return Mono.just(movieCinemaRepository.findById(id).get());
     }
 
