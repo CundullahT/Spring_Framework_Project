@@ -66,7 +66,7 @@ public class Address extends BaseEntity {
 
         Map<String, Object> getTemperature = (Map<String, Object>) getWeather.get("current");
 
-        return Integer.parseInt(getTemperature.get("temperature").toString());
+        return Integer.parseInt(getTemperature.get("temperature").toString());  // Actually we don't have to parse it in here because we are receiving integer value from api but it is good to have it like this.
 
     }
 
