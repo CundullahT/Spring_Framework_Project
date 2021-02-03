@@ -52,7 +52,7 @@ public class ApiController {
 
         Optional<Address> foundedAddress = addressRepository.findById(id);
 
-        if (foundedAddress.isEmpty()) throw new Exception("Address does not exist!");
+        if (!foundedAddress.isPresent()) throw new Exception("Address does not exist!");
 
         address.setCurrentTemperature(new Address().consumeTemp(address.getCity()));
         address.setId(foundedAddress.get().getId());

@@ -60,7 +60,7 @@ public class Address extends BaseEntity {
 
         String uri = BASE_URL + city;
 
-        Object currentWeather = restTemplate.getForObject(BASE_URL, Object.class);
+        Object currentWeather = restTemplate.getForObject(uri, Object.class);
 
         Map<String, Object> getWeather = (Map<String, Object>) currentWeather;
 
