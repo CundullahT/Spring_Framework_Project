@@ -4,6 +4,8 @@ import com.cybertek.entity.Genre;
 import com.cybertek.entity.MovieCinema;
 import com.cybertek.repository.GenreRepository;
 import com.cybertek.repository.MovieCinemaRepository;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -52,6 +54,27 @@ public class WebFluxController {
     public Mono<Void> deleteGenre(@PathVariable("id") Long id){
         genreRepository.deleteById(id);
         return Mono.empty();
+    }
+
+    //------------------- WEBCLIENT EXAMPLE -------------------//
+
+    @GetMapping("/flux")
+    public Flux<MovieCinema> readWithWebClient(){
+        return webClient
+                .get()
+                .uri("/flux-movie-cinemas")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToFlux(MovieCinema.class);
+    }
+
+    @GetMapping("/mono/{id}")
+    public Mono<MovieCinema> readMovieCinemaMonoWithWebClient(@PathVariable("id") Long id){
+        return webClient
+                .get()
+                .uri("/mono-movie-cinema/{id}", id)
+                .retrieve()
+                .bodyToMono(MovieCinema.class);
     }
 
 }
