@@ -1,4 +1,7 @@
 package com.cybertek.enums;
 
-public class UserRole {
+public enum UserRole {
+
+    USER,ADMIN
+
 }

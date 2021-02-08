@@ -1,4 +1,4 @@
 package com.cybertek.enums;
 
-public class UserState {
+public enum UserState {
 }
