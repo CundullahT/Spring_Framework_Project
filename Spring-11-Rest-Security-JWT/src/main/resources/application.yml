@@ -22,4 +22,3 @@ spring:
 security:
   jwt:
     secret-key: cybertek
-
