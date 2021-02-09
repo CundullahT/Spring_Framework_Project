@@ -46,10 +46,8 @@ public class JWTUtil {
     }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver){
-
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
-
     }
 
     public String extractUsername(String token){
