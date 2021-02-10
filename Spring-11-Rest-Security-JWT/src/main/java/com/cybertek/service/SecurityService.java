@@ -1,4 +1,4 @@
-package com.cybertek.services;
+package com.cybertek.service;
 
 import com.cybertek.entity.User;
 import org.springframework.security.core.GrantedAuthority;

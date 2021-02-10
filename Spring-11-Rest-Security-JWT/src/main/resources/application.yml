@@ -7,8 +7,8 @@ spring:
     active: default
   datasource:
     url: jdbc:postgresql://localhost:5432/cybertek_db
-    data-username: postgres
-    data-password: Ct385223@
+    username: postgres
+    password: Ct385223@
     driver-class-name: org.postgresql.Driver
     initialization-mode: always
     data: classpath:data.sql
