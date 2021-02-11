@@ -46,6 +46,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/create-user")
+    @DefaultExceptionMessage(defaultMessage = "Failed to create user, please try again!")
     public ResponseEntity<ResponseWrapper> createAccount(@RequestBody User user) throws ServiceException {
 
         User createdUser = userService.createUser(user);
