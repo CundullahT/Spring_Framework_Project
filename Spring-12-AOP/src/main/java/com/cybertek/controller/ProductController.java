@@ -23,9 +23,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)   // In default it is already method = RequestMethod.GET
-    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) throws Exception {
-        return ResponseEntity.ok(productService.getProduct(id));
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)   // In default it is already method = RequestMethod.GET
+//    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id) throws Exception {
+//        return ResponseEntity.ok(productService.getProduct(id));
+//    }
+
+    @GetMapping(value = "/{id}")
+    public Product getProduct(@PathVariable("id") Long id) throws Exception {
+        return productService.getProduct(id);
     }
 
     @GetMapping
