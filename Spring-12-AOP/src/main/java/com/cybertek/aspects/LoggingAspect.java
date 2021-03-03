@@ -116,4 +116,24 @@ public class LoggingAspect {
         logger.info("After finally -> Method: {} - results: {}", joinPoint.getSignature().toShortString());
     }
 
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
+    private void anyPostProductOperation(){}
+
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.PutMapping)")
+    private void anyPutProductOperation(){}
+
+    @Around("anyPostProductOperation()")
+    public Object anyPostControllerAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+
+        logger.info("Before -> Method: {} - Parameters: {}", proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
+
+        List<Product> results = new ArrayList<>();
+//        results = (List<Product>) proceedingJoinPoint.proceed();
+
+        logger.info("After -> Method: {} - Results: {}", proceedingJoinPoint.getSignature().toShortString(), results);
+
+        return results;
+
+    }
+
 }

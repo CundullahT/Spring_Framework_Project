@@ -43,15 +43,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<List<Product>> createProduct(@RequestBody Product product) throws Exception {
+    public List<Product> createProduct(@RequestBody Product product) throws Exception {
 
-        List<Product> set = productService.createProduct(product);
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .header("Version", "Cybertek.v1")
-                .header("Operation", "Create")
-                .body(set);
+        return productService.createProduct(product);
 
     }
 
