@@ -28,4 +28,14 @@ class CheckingAccountTest {
         assertEquals(-65, checkingAccount.purchase("Shoes", 130));
     }
 
+    @Test
+    void withdraw_branch() {
+        assertDoesNotThrow(() -> {
+            checkingAccount.withdraw_branch(400, false);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            checkingAccount.withdraw_branch(600, false);
+        });
+    }
+
 }
