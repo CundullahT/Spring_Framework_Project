@@ -11,7 +11,7 @@ class CalculatorTest {
 
     @Test
     void testCase2(){
-        fail("Not implemented yet.");
+        assertTrue(Calculator.operator.equals("add"));
     }
 
     @Test
