@@ -20,6 +20,16 @@ class CalculatorTest {
     }
 
     @Test
+    void testCase4(){
+        String nullString = null;
+        String notNullString = "Cybertek";
+
+        assertNull(nullString);
+        assertNotNull(notNullString);
+
+    }
+
+    @Test
     void add() {
         int actual = Calculator.add(2, 3);
         assertEquals(5, actual);
