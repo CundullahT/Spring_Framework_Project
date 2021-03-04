@@ -7,6 +7,12 @@
     <groupId>org.example</groupId>
     <artifactId>Spring-13-UnitTesting-JUnit5</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -17,10 +23,5 @@
         </dependency>
 
     </dependencies>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 
 </project>
