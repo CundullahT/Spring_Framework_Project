@@ -10,14 +10,14 @@ import java.util.List;
 @RestController
 public class StudentController {
 
-    StudentService studentService;
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 
     @GetMapping("/data")
-    List<Student> getStudent_data() {
+    public List<Student> getStudent_data() {
         return studentService.getStudent_data();
     }
 
