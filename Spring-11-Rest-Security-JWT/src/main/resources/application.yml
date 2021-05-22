@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/cybertek_db
     username: postgres
-    password: Ct385223@
+    password: admin
     driver-class-name: org.postgresql.Driver
 #    initialization-mode: always
     data: classpath:data.sql
